@@ -1,7 +1,8 @@
-package dev.kylecode.recipefinder
+package dev.kylecode.recipefinder.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dev.kylecode.recipefinder.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
