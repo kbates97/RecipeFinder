@@ -2,6 +2,7 @@ package dev.kylecode.recipefinder.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Equipment(
     @SerializedName("id")
@@ -12,4 +13,4 @@ data class Equipment(
     val localizedName: String,
     @SerializedName("name")
     val name: String
-)
+) : Serializable

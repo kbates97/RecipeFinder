@@ -2,6 +2,7 @@ package dev.kylecode.recipefinder.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class ProductMatche(
     @SerializedName("averageRating")
@@ -22,4 +23,4 @@ data class ProductMatche(
     val score: Double,
     @SerializedName("title")
     val title: String
-)
+) : Serializable

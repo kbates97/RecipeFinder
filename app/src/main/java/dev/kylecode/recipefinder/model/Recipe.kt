@@ -2,6 +2,7 @@ package dev.kylecode.recipefinder.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Recipe(
     @SerializedName("aggregateLikes")
@@ -76,4 +77,4 @@ data class Recipe(
     val weightWatcherSmartPoints: Int,
     @SerializedName("winePairing")
     val winePairing: WinePairing
-)
+) : Serializable

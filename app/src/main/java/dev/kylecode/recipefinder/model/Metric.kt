@@ -2,6 +2,7 @@ package dev.kylecode.recipefinder.model
 
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Metric(
     @SerializedName("amount")
@@ -10,4 +11,4 @@ data class Metric(
     val unitLong: String,
     @SerializedName("unitShort")
     val unitShort: String
-)
+) : Serializable
