@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSuccess(recipes: List<Recipe>) {
-        recipeAdapter.appendRecipes(recipes)
+        recipeAdapter.setRecipes(recipes)
         attachRecipesOnScrollListener()
     }
 

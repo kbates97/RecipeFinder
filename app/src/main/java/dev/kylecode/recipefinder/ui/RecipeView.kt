@@ -22,7 +22,10 @@ class RecipeView : AppCompatActivity() {
 
         txtViewTitle.text = recipe.title
 
-        txtViewTime.text = "${this.getString(R.string.time_to_make)} ${recipe.readyInMinutes} ${this.getString(R.string.minutes)}"
+        if (recipe.readyInMinutes > 60)
+            txtViewTime.text = "${this.getString(R.string.time_to_make)} ${recipe.readyInMinutes/60} ${this.getString(R.string.hours_and)} ${recipe.readyInMinutes%60} ${this.getString(R.string.minutes)}"
+        else
+            txtViewTime.text = "${this.getString(R.string.time_to_make)} ${recipe.readyInMinutes} ${this.getString(R.string.minutes)}"
 
         var ingredients = ""
         for (ingredient in recipe.extendedIngredients){

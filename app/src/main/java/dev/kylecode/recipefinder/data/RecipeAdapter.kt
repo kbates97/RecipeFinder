@@ -34,7 +34,14 @@ class RecipeAdapter(
                 .into(recipeImage)
 
             recipeName.text = recipe.title
-            recipeTime.text = "${context.getString(R.string.time_to_make)} ${recipe.readyInMinutes}"
+            if (recipe.readyInMinutes >= 60)
+            {
+                val hours = recipe.readyInMinutes / 60.0
+                recipeTime.text = "${context.getString(R.string.time_to_make)} $hours ${context.getString(R.string.hours)}"
+            }else{
+                recipeTime.text = "${context.getString(R.string.time_to_make)} ${recipe.readyInMinutes} ${context.getString(R.string.minutes)}"
+            }
+            recipeTime.text = "${context.getString(R.string.time_to_make)} ${recipe.readyInMinutes} ${context.getString(R.string.minutes)}"
             itemView.setOnClickListener{
                 onRecipeClick.invoke(recipe)
             }
@@ -44,6 +51,11 @@ class RecipeAdapter(
     fun appendRecipes(recipes: List<Recipe>){
         this.recipes.addAll(recipes)
         notifyItemRangeInserted(this.recipes.size, recipes.size)
+    }
+
+    fun setRecipes(recipes: List<Recipe>){
+        this.recipes = recipes as MutableList<Recipe>
+        notifyItemRangeChanged(0, recipes.size)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
