@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recipeAdapter: RecipeAdapter
     private lateinit var recipeLayoutManager: LinearLayoutManager
     private lateinit var tags: String
-    private var currentRecipes: MutableList<Recipe> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         recipeResults = findViewById(R.id.recyclerRecipes)
         recipeLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        recipeAdapter = RecipeAdapter(currentRecipes, {recipe -> showRecipeDetail(recipe) }, this)
+        recipeAdapter = RecipeAdapter(mutableListOf(), { recipe -> showRecipeDetail(recipe) }, this)
 
         recipeResults.layoutManager = recipeLayoutManager
         recipeResults.adapter = recipeAdapter
@@ -51,7 +50,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onSuccess(recipes: List<Recipe>) {
-        currentRecipes = recipes as MutableList<Recipe>
         recipeAdapter.appendRecipes(recipes)
         attachRecipesOnScrollListener()
     }
