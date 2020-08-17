@@ -12,14 +12,14 @@
 
         <ImageView
             android:id="@+id/imgRecipe"
-            android:layout_width="150dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/recipe_image"
             app:srcCompat="@drawable/ic_baseline_restaurant_24" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:orientation="vertical"
@@ -42,5 +42,13 @@
                 android:text="@string/time_to_make" />
 
         </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/tgleBtnFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight=".5"
+            android:button="@drawable/ic_baseline_favorite_border_24"
+            android:checked="false" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
